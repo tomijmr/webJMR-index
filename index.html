@@ -3,107 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JMR SA - Inicio</title>
+    <title>JMR Solutions - Consultora de Sistemas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-primary: #121212; /* Negro profundo */
+            --color-secondary: #fba919; /* Naranja de tu marca */
+            --color-text-light: #e0e0e0; /* Gris claro */
+            --color-text-dark: #2c2c2c; /* Gris oscuro */
+            --color-background: #ffffff; /* Fondo blanco */
+            --color-card: #f8f8f8;
+            --color-border: #e0e0e0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #ffffff; 
-            color: white; 
+            background-color: var(--color-background);
+            color: var(--color-text-dark);
+            line-height: 1.8;
         }
-        header {
-            background-color: #171717;
-            color: white;
-            padding: 20px;
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
             text-align: center;
+        }
+
+        .hero {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px; /* Botón con bordes curvos */
+            margin-top: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--color-text-dark);
+        }
+
+        .sub-heading {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 50px;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card, .project-card {
+            background-color: var(--color-card);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+        }
+
+        .project-card {
+            text-align: center;
+        }
+        
+        .service-card:hover, .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5em;
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+
+        .project-card img {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        
+        .project-card a:hover {
+            color: var(--color-secondary);
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group textarea {
             width: 100%;
+            padding: 12px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1em;
         }
-        #logo {
-            margin: 20px 0;
+
+        .form-group textarea {
+            resize: vertical;
         }
-        .projects {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-        .project {
-            background-color: #fba919; 
+
+        .submit-button {
+            width: 100%;
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            padding: 15px 0;
             border: none;
-            border-radius: 5px;
-            margin: 10px;
-            padding: 20px;
-            text-align: center;
-            width: 300px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1em;
+            cursor: pointer;
             transition: background-color 0.3s;
         }
-        .project img {
-            max-width: 100%;
-            height: auto;
+
+        .submit-button:hover {
+            background-color: #e0a800;
         }
-        .project h2 {
-            color: #171717; 
-            margin: 10px 0;
-        }
-        .project:hover {
-            background-color: #e0a800; 
-        }
-        .project a {
-            text-decoration: none;
-            color: #171717; 
-            display: block;
-            margin-top: 10px;
+
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 30px 0;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div id="logo">
-        <img src="logo.png" alt="JMR SA - Logotipo" width="150"> 
+<header class="hero">
+    <div class="container">
+        <img src="logo.png" alt="JMR Solutions Logo" width="180">
+        <h1>Soluciones de Software que Impulsan tu Negocio</h1>
+        <p>Convertimos tus ideas en sistemas robustos y escalables. Lidera el mercado con tecnología de punta.</p>
+        <a href="#contact" class="cta-button">¡Hablemos de tu proyecto!</a>
     </div>
-    <h1>Conoce nuestros proyectos</h1>
 </header>
 
-<div class="projects">
-    <div class="project">
-        <img src="proyecto1-logo.png" alt="Logo SaMS" width="150">
-        <h2><a href="https://devjmr.site/dev/sams">SaMS Lite - Modulo Cotizador</a></h2> 
-        <p>Modulo de cotizador de nuestro Sistema de Gestion de Ventas (SaMS). Carga tus productos, tus listas de precios y de una forma simple, encontra los precios para cerrar tus ventas de la forma mas rapida.</p>
+<section id="services">
+    <div class="container">
+        <h2>Nuestros Servicios</h2>
+        <p class="sub-heading">En JMR Solutions, ofrecemos un portafolio completo para cubrir todas tus necesidades digitales.</p>
+        <div class="grid-container">
+            <div class="service-card">
+                <h3>Desarrollo Web</h3>
+                <p>Diseñamos y desarrollamos sitios y aplicaciones web a medida, con un enfoque en la experiencia de usuario y el rendimiento.</p>
+            </div>
+            <div class="service-card">
+                <h3>Sistemas de Gestión</h3>
+                <p>Implementamos soluciones empresariales (CRM, ERP) para automatizar procesos y optimizar la productividad de tu equipo.</p>
+            </div>
+            <div class="service-card">
+                <h3>Consultoría Tecnológica</h3>
+                <p>Te asesoramos estratégicamente para que tomes las mejores decisiones tecnológicas y mantengas tu negocio a la vanguardia.</p>
+            </div>
+        </div>
     </div>
-   <div class="project">
-        <img src="proyecto2-logo.png" alt="Logo Sysmenu" width="150">  
-        <h2><a href="https://devjmr.site/dev">Sysmenu >_</a></h2> 
-        <p>Agiliza la gestion de tu comercio gastronomico con nuestro sistema.</p>
+</section>
+
+<section id="projects">
+    <div class="container">
+        <h2>Nuestros Proyectos</h2>
+        <p class="sub-heading">Conoce algunos de nuestros trabajos más recientes y lo que hemos logrado para nuestros clientes.</p>
+        <div class="grid-container">
+            <div class="project-card">
+                <img src="proyecto1-logo.png" alt="Logo SaMS">
+                <h3><a href="https://devjmr.site/dev/sams">SaMS Lite - Módulo Cotizador</a></h3>
+                <p>Módulo de cotizador del Sistema de Gestión de Ventas (SaMS).</p>
+            </div>
+            <div class="project-card">
+                <img src="proyecto2-logo.png" alt="Logo Sysmenu">
+                <h3><a href="https://devjmr.site/dev">Sysmenu >_</a></h3>
+                <p>Sistema para agilizar la gestión de comercios gastronómicos.</p>
+            </div>
+            <div class="project-card">
+                <img src="proyecto3-logo.png" alt="Logo onboarding_cred">
+                <h3><a href="https://devjmr.site/dev/onboarding_cred/">Consultas BCRA</a></h3>
+                <p>Herramienta para obtener un scoring crediticio con CUIT/CUIL.</p>
+            </div>
+            <div class="project-card">
+                <img src="proyecto4-logo.png" alt="Logo Preventa">
+                <h3><a href="https://devjmr.site/dev/gestion_cred/">Gestión Consultas de Preventa</a></h3>
+                <p>Mini Sistema para la gestión de Consultas de Crédito de los preventistas.</p>
+            </div>
+            <div class="project-card">
+                <img src="proyecto5-logo.png" alt="Logo crm php">
+                <h3><a href="https://devjmr.site/dev/php_crm/">Mini-CRM con PHP</a></h3>
+                <p>Sistema de prueba realizado en las clases de PHP con la comunidad de JMR.</p>
+            </div>
+            <div class="project-card">
+                <img src="v12-4.png" alt="Logo Fintegra">
+                <h3><a href="https://devjmr.site/dev/fintegra/">FINTEGRA</a></h3>
+                <p>Landing page para un sistema de gestión crediticia.</p>
+            </div>
+        </div>
     </div>
-     <div class="project">
-        <img src="proyecto3-logo.png" alt="Logo onboarding_cred" width="150"> 
-        <h2><a href="https://devjmr.site/dev/onboarding_cred/">Consultas BCRA</a></h2>
-        <p>Realiza consultas a la Base de datos del BCRA solo con tu CUIT/CUIL/CDI y obten un scoring creiditicio.</p>
+</section>
+
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Contáctanos</h2>
+        <p class="sub-heading">Estamos listos para escuchar tu idea y empezar a construir algo grande.</p>
+        <form action="https://wa.link/opee4i" target="_blank">
+            <!-- <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div> -->
+            <button type="submit" class="submit-button">Enviar WhatsApp</button>
+        </form>
     </div>
-</div>
-<div class="projects">
-    <div class="project">
-        <img src="proyecto4-logo.png" alt="Logo Preventa" width="150">
-        <h2><a href="https://devjmr.site/dev/gestion_cred/">Gestion Consultas de Preventa</a></h2> 
-        <p>Mini Sistema para la gestion de Consultas de Credito de los preventistas de la Empresa Ronga Hogar. Ideal para el control de visitas a domicilio y creacion de una base de datos de clientes.</p>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 JMR Solutions. Todos los derechos reservados.</p>
     </div>
-    <div class="project">
-        <img src="proyecto5-logo.png" alt="Logo crm php" width="150">
-        <h2><a href="https://devjmr.site/dev/php_crm/">Mini-CRM con PHP</a></h2> 
-        <p>Sistema de prueba realizado en las clases de PHP con la comunidad de JMR.</p>
-    </div>
-    <div class="project">
-        <img src="v12-4.png" alt="Logo Fintegra" width="150">
-        <h2><a href="https://devjmr.site/dev/fintegra/">FINTEGRA</a></h2> 
-        <p>Landing page, FINTEGRA sistema de gestion crediticia.</p>
-    </div>
-</div>
+</footer>
 
 </body>
 </html>
